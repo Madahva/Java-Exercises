@@ -7,21 +7,23 @@ public class Practice {
 
     }
 
-    static int[] solution(int[] statues) {
-            Arrays.sort(statues);
-
+    static int solution(int[] statues) {
+        Arrays.sort(statues);
+        int diff = 0;
         int result = 0;
 
-        for (int i = 0; i < statues.length; i++) {
+        for (int i = 0; i < statues.length -1; i++) {
 
-            int diff = statues[i] - statues[i+1];
+            diff = (statues[i] - statues[i+1]) * (-1);
 
-            if (diff != 1) result++;
+            if (diff > 1) {
+                result += diff - 1;
+            }
+            diff = 0;
         }
 
-
-        return statues;
-        }
+        return (result);
+    }
 
 
 // [2,3,6,8]
